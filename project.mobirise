@@ -5964,6 +5964,74 @@
         {
           "alias": false,
           "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = \"color\")": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = \"image\")": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".card-wrapper": {
+              "border-radius": "4px",
+              "@media (max-width: 767px)": {
+                "padding": "1.5rem"
+              },
+              "@media (min-width: 768px) and (max-width: 991px)": {
+                "padding": "2.25rem"
+              },
+              "@media (min-width: 992px)": {
+                "padding": "4rem"
+              }
+            },
+            ".wrap": {
+              "background": "url(@wrapBgImage)",
+              "background-repeat": "no-repeat",
+              "background-position": "center",
+              "background-size": "cover",
+              ".inner-wrap": {
+                "padding": "40px"
+              }
+            },
+            ".card-title": {
+              "color": "#232323",
+              "text-align": "left"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "color": "#000000",
+              "text-align": "left"
+            }
+          },
+          "_name": "header15",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header15\" group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n\t<mbr-parameters>\n\t\t<header>Size</header>\n\t\t<input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\" checked>\n\t\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"12\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"12\">\n\t\t<input type=\"range\" inline title=\"Width\" name=\"cardWidth\" min=\"4\" max=\"12\" step=\"1\" value=\"12\">\n\t\t<header>Show/Hide</header>\n\t\t<input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n\t\t<input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n\t\t<input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\" checked>\n\n\t\t<header>Card Background</header>\n\t\t<input type=\"image\" name=\"wrapBgImage\" title=\"Image\" value=\"@THEME_PATH@/components/header15/../_images/background1.jpg\">\n\n\t\t<header>Background</header>\n\t\t<fieldset type=\"background\" name=\"bg\" parallax>\n\t\t\t<input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n\t\t\t<input type=\"color\" title=\"Color\" value=\"#bcef9b\" selected>\n\t\t\t<input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n\t\t</fieldset>\n\t\t<header condition=\"bg.type === 'video'\">Fallback Image</header>\n\t\t<input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n\t\t<input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n\t\t<input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n\t\t<input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n\t</mbr-parameters>\n\n\t<div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\"></div>\n\t<div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n\t\t<div class=\"row justify-content-center\">\n\t\t\t<div class=\"card col-12 col-lg-{{cardWidth}}\">\n\t\t\t\t<div class=\"card-wrapper wrap\">\n\t\t\t\t\t<div class=\"card-box align-center\">\n\t\t\t\t\t\t<h1 class=\"card-title mbr-fonts-style mb-4\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>&nbsp;Privacy Policy I प्राइवेसी पॉलिसी</b></h1>\n\t\t\t\t\t\t<p class=\"mbr-text mbr-fonts-style mb-4\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\"><br>Last Updated: [June 2026]<br><br>Welcome to Gj Creations. We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, use our smart links ), or interact with our music distribution updates.<br><br>1. Information We Collect<br>We may collect personal information that you voluntarily provide to us when you:<br><br>Subscribe to our newsletter or music release updates.<br><br>Contact us via email regarding business inquiries or collaborations.<br><br>Interact with our official social media profiles and streaming links.<br><br>Types of Data: Name, Email Address, and basic usage data (IP address, browser type) collected through cookies for website optimization.<br><br>2. How We Use Your Information<br>We use the collected information strictly to:<br><br>Deliver updates about upcoming music tracks, poetry collections, and audio projects.<br><br>Respond to your emails, feedback, or support queries.<br><br>Analyze website traffic to improve user experience.<br><br>Note: We never sell, rent, or trade your personal information with third parties for marketing purposes.<br><br>3. Third-Party Links &amp; Services<br>Our platform contains links to external music streaming services and distribution tools (such as Spotify, SoundCloud, YouTube, RouteNote, TuneCore, and Push.fm).<br>Please note that these third-party websites have their own independent privacy policies. We do not accept any responsibility or liability for their content and activities.<br><br>4. Data Security<br>We implement appropriate technical and organizational security measures to protect your personal data from unauthorized access, alteration, or disclosure.<br><br>5. Your Rights<br>You have the right to:<br><br>Request access to the personal data we hold about you.<br><br>Request the correction or deletion of your personal data.<br><br>Opt-out of any future email newsletters or updates at any time by clicking 'Unsubscribe'.<br><br>6. Contact Us<br>If you have any questions or concerns regarding this Privacy Policy, please contact us at:<br><br>പ്രോജക്റ്റിന്റെ പേര്: Gj Creations\n<br>\n<br>ഇമെയിൽ വിലാസം: [ iwiznet@gmail.com ]\n<br>\n<br>വെബ്‌സൈറ്റ്/പ്ലാറ്റ്‌ഫോം ലിങ്ക്: [ https://www.iwiznet.in ]<br><br>അവസാനമായി പുതുക്കിയത്: [ June 2026 ]<br><br><br>Gj Creations ലേക്ക് സ്വാഗതം. ഞങ്ങളുടെ ശ്രോതാക്കളുടെയും സന്ദർശകരുടെയും സ്വകാര്യതയെ ഞങ്ങൾ അതീവ പ്രാധാന്യത്തോടെ കാണുന്നു. ഞങ്ങളുടെ മ്യൂസിക് ട്രാക്കുകൾ, കവിതകൾ, ഓഡിയോ പ്രോജക്റ്റുകൾ എന്നിവയുമായി ബന്ധപ്പെട്ട് നിങ്ങൾ ഞങ്ങളുമായി പങ്കുവെക്കുന്ന വിവരങ്ങൾ എങ്ങനെയാണ് ശേഖരിക്കുന്നതെന്നും സംരക്ഷിക്കുന്നതെന്നും വ്യക്തമാക്കാനാണ് ഈ പ്രൈവസി പോളിസി തയാറാക്കിയിരിക്കുന്നത്.<br><br>1. ഞങ്ങൾ ശേഖരിക്കുന്ന വിവരങ്ങൾ<br>നിങ്ങൾ സ്വമേധയാ നൽകുന്ന വിവരങ്ങൾ മാത്രമാണ് ഞങ്ങൾ ശേഖരിക്കുന്നത്:<br><br>പുതിയ പാട്ടുകളെയും പ്രോജക്റ്റുകളെയും കുറിച്ചുള്ള അപ്‌ഡേറ്റുകൾ ലഭിക്കുന്നതിനായി നിങ്ങൾ ഇമെയിൽ സബ്‌സ്‌ക്രൈബ് ചെയ്യുമ്പോൾ.<br><br>ബിസിനസ്സ് ആവശ്യങ്ങൾക്കോ സഹകരണത്തിനോ (Collaborations) വേണ്ടി ഇമെയിൽ വഴിയോ സോഷ്യൽ മീഡിയ വഴിയോ ഞങ്ങളെ ബന്ധപ്പെടുമ്പോൾ.<br><br>ശേഖരിക്കുന്ന വിവരങ്ങൾ: പേര്, ഇമെയിൽ വിലാസം (Email Address), കൂടാതെ വെബ്‌സൈറ്റ് കൂടുതൽ മെച്ചപ്പെടുത്തുന്നതിനായി കുക്കീസ് (Cookies) വഴി ലഭിക്കുന്ന അടിസ്ഥാന വിവരങ്ങൾ (IP വിലാസം, ബ്രൗസർ തരം എന്നിവ).<br><br>2. വിവരങ്ങൾ എങ്ങനെ ഉപയോഗിക്കുന്നു<br>ശേഖരിക്കുന്ന വിവരങ്ങൾ താഴെ പറയുന്ന ആവശ്യങ്ങൾക്ക് വേണ്ടി മാത്രമാണ് ഉപയോഗിക്കുന്നത്:<br><br>പുതിയ സംഗീത ആൽബങ്ങൾ, കവിതകൾ, മറ്റ് കലാസൃഷ്ടികൾ എന്നിവയെക്കുറിച്ചുള്ള വിവരങ്ങൾ നിങ്ങളെ അറിയിക്കാൻ.<br><br>നിങ്ങളുടെ സംശയങ്ങൾക്കും സന്ദേശങ്ങൾക്കും കൃത്യമായ മറുപടി നൽകാൻ.<br><br>ഞങ്ങളുടെ പ്ലാറ്റ്‌ഫോമിലെ സന്ദർശകരുടെ അനുഭവം കൂടുതൽ മികച്ചതാക്കാൻ.<br><br>ശ്രദ്ധിക്കുക: നിങ്ങളുടെ വ്യക്തിഗത വിവരങ്ങൾ ഞങ്ങൾ യാതൊരു കാരണവശാലും മറ്റ് മൂന്നാം കക്ഷികൾക്കോ (Third parties) പരസ്യ കമ്പനികൾക്കോ വിൽക്കുകയോ കൈമാറുകയോ ഇല്ല.<br><br>3. തേർഡ് പാർട്ടി ലിങ്കുകൾ (Third-Party Links)<br>ഞങ്ങളുടെ പ്ലാറ്റ്‌ഫോമുകളിൽ മറ്റ് മ്യൂസിക് സ്ട്രീമിംഗ് സർവീസുകളുടെയും ഡിസ്ട്രിബ്യൂഷൻ ടൂളുകളുടെയും ലിങ്കുകൾ (ഉദാഹരണത്തിന്: Spotify, SoundCloud, YouTube, Push.fm, RouteNote മുതലായവ) അടങ്ങിയിട്ടുണ്ടാകാം. ഈ ബാഹ്യ വെബ്‌സൈറ്റുകൾക്ക് അവരുടേതായ പ്രൈവസി പോളിസികൾ ഉണ്ട്. അതിനാൽ, ആ സൈറ്റുകളിലെ ഉള്ളടക്കങ്ങൾക്കോ പ്രവർത്തനങ്ങൾക്കോ ഞങ്ങൾക്ക് യാതൊരുവിധ ഉത്തരവാദിത്തവും ഉണ്ടായിരിക്കുന്നതല്ല.<br><br>4. വിവരങ്ങളുടെ സുരക്ഷ<br>നിങ്ങൾ ഞങ്ങളുമായി പങ്കുവെക്കുന്ന ഇമെയിൽ ഉൾപ്പെടെയുള്ള വിവരങ്ങൾ സുരക്ഷിതമായി സൂക്ഷിക്കാൻ ഞങ്ങൾ ബാധ്യസ്ഥരാണ്. അനധികൃതമായ ഇടപെടലുകളിൽ നിന്നും ചോർച്ചകളിൽ നിന്നും ഈ ഡാറ്റയെ സംരക്ഷിക്കാൻ ആവശ്യമായ മുൻകരുതലുകൾ ഞങ്ങൾ സ്വീകരിച്ചിട്ടുണ്ട്.<br><br>5. നിങ്ങളുടെ അവകാശങ്ങൾ<br>ഞങ്ങളുടെ ലിസ്റ്റിൽ നിന്ന് നിങ്ങളുടെ ഇമെയിൽ വിലാസം എപ്പോൾ വേണമെങ്കിലും മാറ്റാനുള്ള പൂർണ്ണ അവകാശം നിങ്ങൾക്കുണ്ട്. അപ്‌ഡേറ്റുകൾ ഇനി ലഭിക്കേണ്ടതില്ലെങ്കിൽ ഇമെയിലിനൊപ്പമുള്ള 'Unsubscribe' ലിങ്കിൽ ക്ലിക്ക് ചെയ്ത് നിങ്ങൾക്ക് ഒഴിവാക്കാവുന്നതാണ്.<br><br>6. ഞങ്ങളെ ബന്ധപ്പെടാൻ<br>ഈ പ്രൈവസി പോളിസിയെക്കുറിച്ച് എന്തെങ്കിലും സംശയങ്ങളോ ചോദ്യങ്ങളോ ഉണ്ടെങ്കിൽ താഴെ കാണുന്ന വിലാസത്തിൽ ബന്ധപ്പെടാം:<br><br>പ്രോജക്റ്റിന്റെ പേര്: Gj Creations<br><br>ഇമെയിൽ വിലാസം: [ iwiznet@gmail.com ]<br><br>വെബ്‌സൈറ്റ്/പ്ലാറ്റ്‌ഫോം ലിങ്ക്: [ https://www.iwiznet.in ]<br><br><b><i>प्राइवेसी पॉलिसी (Privacy Policy)</i></b><br><b><i><br></i></b><br>अंतिम अपडेट: [तारीख दर्ज करें, जैसे: June 2026]<br><br>Gj Creations में आपका स्वागत है। हम अपने श्रोताओं और विजिटर्स की गोपनीयता (Privacy) का पूरा सम्मान करते हैं और उसे सुरक्षित रखने के लिए प्रतिबद्ध हैं। यह प्राइवेसी पॉलिसी यह स्पष्ट करती है कि जब आप हमारी वेबसाइट पर आते हैं, हमारे स्मार्ट लिंक्स (जैसे Push.fm) का उपयोग करते हैं, या हमारे संगीत और कविता प्रोजेक्ट्स से जुड़ते हैं, तो हम आपकी जानकारी को कैसे एकत्र, उपयोग और सुरक्षित रखते हैं।<br><br>1. एकत्र की जाने वाली जानकारी<br>हम केवल वही व्यक्तिगत जानकारी एकत्र करते हैं जो आप स्वेच्छा से हमें प्रदान करते हैं, जैसे:<br><br>जब आप हमारे नए गीतों, एल्बम और कविताओं के अपडेट पाने के लिए ईमेल सब्सक्राइब करते हैं।<br><br>जब आप व्यावसायिक पूछताछ (Business Inquiries) या सहयोग (Collaborations) के लिए ईमेल या सोशल मीडिया के माध्यम से हमसे संपर्क करते हैं।<br><br>जानकारी के प्रकार: नाम, ईमेल पता (Email Address), और वेबसाइट के अनुभव को बेहतर बनाने के लिए कुकीज़ (Cookies) के माध्यम से मिलने वाली बुनियादी जानकारी (जैसे IP एड्रेस और ब्राउज़र का प्रकार)।<br><br>2. हम आपकी जानकारी का उपयोग कैसे करते हैं<br>एकत्र की गई जानकारी का उपयोग केवल निम्नलिखित उद्देश्यों के लिए किया जाता है:<br><br>आपको हमारे नए म्यूजिक ट्रैक्स, कविता संग्रह और ऑडियो प्रोजेक्ट्स के बारे में अपडेट भेजने के लिए।<br><br>आपके संदेशों, सुझावों या सवालों के सही जवाब देने के लिए।<br><br>वेबसाइट ट्रैफ़िक का विश्लेषण करके विजिटर्स के अनुभव को और बेहतर बनाने के लिए।<br><br>ध्यान दें: हम आपकी किसी भी व्यक्तिगत जानकारी को मार्केटिंग उद्देश्यों के लिए किसी भी तीसरे पक्ष (Third Party) या विज्ञापन कंपनियों को कभी नहीं बेचते, किराए पर नहीं देते और न ही उनके साथ साझा करते हैं।<br><br>3. थर्ड-पार्टी लिंक्स (Third-Party Links)<br>हमारे प्लेटफॉर्म पर अन्य म्यूजिक स्ट्रीमिंग प्लेटफॉर्म्स और डिस्ट्रीब्यूशन टूल्स (जैसे: Spotify, SoundCloud, YouTube, Push.fm, RouteNote आदि) के लिंक्स शामिल हो सकते हैं। इन बाहरी वेबसाइटों की अपनी स्वतंत्र प्राइवेसी पॉलिसी होती है। इसलिए, उन साइटों की सामग्री या गतिविधियों के लिए हमारी कोई ज़िम्मेदारी या दायित्व नहीं होगा।<br><br>4. डेटा की सुरक्षा<br>आप हमारे साथ जो भी जानकारी (जैसे ईमेल) साझा करते हैं, उसकी सुरक्षा करना हमारी ज़िम्मेदारी है। अनधिकृत पहुंच (Unauthorized access), बदलाव या डेटा लीक से आपकी जानकारी को बचाने के लिए हमने आवश्यक तकनीकी और संगठनात्मक सुरक्षा उपाय किए हैं।<br><br>5. आपके अधिकार<br>आपके पास यह अधिकार है कि आप जब चाहें हमारी ईमेल लिस्ट से अपना नाम और ईमेल हटा सकते हैं। यदि आप भविष्य में अपडेट प्राप्त नहीं करना चाहते हैं, तो ईमेल में दिए गए 'Unsubscribe' लिंक पर क्लिक करके किसी भी समय खुद को हटा सकते हैं।<br><br>6. हमसे संपर्क करें<br>यदि इस प्राइवेसी पॉलिसी के संबंध में आपका कोई सवाल या सुझाव है, तो आप नीचे दिए गए पते पर हमसे संपर्क कर सकते हैं:<br><br>प्रोजेक्ट का नाम: Gj Creations<br><br>ईमेल आईडी: [ iwiznet@gmail.com ]<br><br>वेबसाइट/प्लेटफ़ॉर्म लिंक:[ https://www.iwiznet.in ]<br><br><br></p>\n\t\t\t\t\t\t<div mbr-buttons mbr-theme-style=\"display-1\" class=\"mbr-section-btn mt-4\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-primary\" href=\"https://discord.gg/7agn9UxnZ\" data-app-placeholder=\"Type Text\">Start Now</a></div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>",
+          "_cid": "vmOmaHrAPJ",
+          "_anchor": "header15-7d",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
             "padding-top": "(@paddingTop * 1rem)",
             "padding-bottom": "(@paddingBottom * 1rem)",
             "& when (@bg-type = 'color')": {
@@ -6056,74 +6124,6 @@
           "_isUserblock": true,
           "_cid": "vmOmaHexbK",
           "_anchor": "contacts02-7c",
-          "_protectedParams": [],
-          "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "alias": false,
-          "_styles": {
-            "& when not (@fullScreen)": {
-              "padding-top": "(@paddingTop * 1rem)",
-              "padding-bottom": "(@paddingBottom * 1rem)"
-            },
-            "& when (@bg-type = \"color\")": {
-              "background-color": "@bg-value"
-            },
-            "& when (@bg-type = \"image\")": {
-              "background-image": "url(@bg-value)"
-            },
-            ".mbr-fallback-image.disabled": {
-              "display": "none"
-            },
-            ".mbr-fallback-image": {
-              "display": "block",
-              "background-size": "cover",
-              "background-position": "center center",
-              "width": "100%",
-              "height": "100%",
-              "position": "absolute",
-              "top": "0",
-              "& when (@bg-type = 'video')": {
-                "background-image": "url(@fallBackImage)"
-              }
-            },
-            ".card-wrapper": {
-              "border-radius": "4px",
-              "@media (max-width: 767px)": {
-                "padding": "1.5rem"
-              },
-              "@media (min-width: 768px) and (max-width: 991px)": {
-                "padding": "2.25rem"
-              },
-              "@media (min-width: 992px)": {
-                "padding": "4rem"
-              }
-            },
-            ".wrap": {
-              "background": "url(@wrapBgImage)",
-              "background-repeat": "no-repeat",
-              "background-position": "center",
-              "background-size": "cover",
-              ".inner-wrap": {
-                "padding": "40px"
-              }
-            },
-            ".card-title": {
-              "color": "#232323",
-              "text-align": "left"
-            },
-            ".mbr-text, .mbr-section-btn": {
-              "color": "#000000",
-              "text-align": "left"
-            }
-          },
-          "_name": "header15",
-          "_sourceTheme": "startm5",
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header15\" group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n\t<mbr-parameters>\n\t\t<header>Size</header>\n\t\t<input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\" checked>\n\t\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"12\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"12\">\n\t\t<input type=\"range\" inline title=\"Width\" name=\"cardWidth\" min=\"4\" max=\"12\" step=\"1\" value=\"12\">\n\t\t<header>Show/Hide</header>\n\t\t<input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n\t\t<input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n\t\t<input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\" checked>\n\n\t\t<header>Card Background</header>\n\t\t<input type=\"image\" name=\"wrapBgImage\" title=\"Image\" value=\"@THEME_PATH@/components/header15/../_images/background1.jpg\">\n\n\t\t<header>Background</header>\n\t\t<fieldset type=\"background\" name=\"bg\" parallax>\n\t\t\t<input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n\t\t\t<input type=\"color\" title=\"Color\" value=\"#bcef9b\" selected>\n\t\t\t<input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n\t\t</fieldset>\n\t\t<header condition=\"bg.type === 'video'\">Fallback Image</header>\n\t\t<input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n\t\t<input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n\t\t<input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n\t\t<input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n\t</mbr-parameters>\n\n\t<div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\"></div>\n\t<div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n\t\t<div class=\"row justify-content-center\">\n\t\t\t<div class=\"card col-12 col-lg-{{cardWidth}}\">\n\t\t\t\t<div class=\"card-wrapper wrap\">\n\t\t\t\t\t<div class=\"card-box align-center\">\n\t\t\t\t\t\t<h1 class=\"card-title mbr-fonts-style mb-4\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>&nbsp;Privacy Policy I प्राइवेसी पॉलिसी</b></h1>\n\t\t\t\t\t\t<p class=\"mbr-text mbr-fonts-style mb-4\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\"><br>Last Updated: [June 2026]<br><br>Welcome to Gj Creations. We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, use our smart links ), or interact with our music distribution updates.<br><br>1. Information We Collect<br>We may collect personal information that you voluntarily provide to us when you:<br><br>Subscribe to our newsletter or music release updates.<br><br>Contact us via email regarding business inquiries or collaborations.<br><br>Interact with our official social media profiles and streaming links.<br><br>Types of Data: Name, Email Address, and basic usage data (IP address, browser type) collected through cookies for website optimization.<br><br>2. How We Use Your Information<br>We use the collected information strictly to:<br><br>Deliver updates about upcoming music tracks, poetry collections, and audio projects.<br><br>Respond to your emails, feedback, or support queries.<br><br>Analyze website traffic to improve user experience.<br><br>Note: We never sell, rent, or trade your personal information with third parties for marketing purposes.<br><br>3. Third-Party Links &amp; Services<br>Our platform contains links to external music streaming services and distribution tools (such as Spotify, SoundCloud, YouTube, RouteNote, TuneCore, and Push.fm).<br>Please note that these third-party websites have their own independent privacy policies. We do not accept any responsibility or liability for their content and activities.<br><br>4. Data Security<br>We implement appropriate technical and organizational security measures to protect your personal data from unauthorized access, alteration, or disclosure.<br><br>5. Your Rights<br>You have the right to:<br><br>Request access to the personal data we hold about you.<br><br>Request the correction or deletion of your personal data.<br><br>Opt-out of any future email newsletters or updates at any time by clicking 'Unsubscribe'.<br><br>6. Contact Us<br>If you have any questions or concerns regarding this Privacy Policy, please contact us at:<br><br>പ്രോജക്റ്റിന്റെ പേര്: Gj Creations\n<br>\n<br>ഇമെയിൽ വിലാസം: [ iwiznet@gmail.com ]\n<br>\n<br>വെബ്‌സൈറ്റ്/പ്ലാറ്റ്‌ഫോം ലിങ്ക്: [ https://www.iwiznet.in ]<br><br>അവസാനമായി പുതുക്കിയത്: [ June 2026 ]<br><br><br>Gj Creations ലേക്ക് സ്വാഗതം. ഞങ്ങളുടെ ശ്രോതാക്കളുടെയും സന്ദർശകരുടെയും സ്വകാര്യതയെ ഞങ്ങൾ അതീവ പ്രാധാന്യത്തോടെ കാണുന്നു. ഞങ്ങളുടെ മ്യൂസിക് ട്രാക്കുകൾ, കവിതകൾ, ഓഡിയോ പ്രോജക്റ്റുകൾ എന്നിവയുമായി ബന്ധപ്പെട്ട് നിങ്ങൾ ഞങ്ങളുമായി പങ്കുവെക്കുന്ന വിവരങ്ങൾ എങ്ങനെയാണ് ശേഖരിക്കുന്നതെന്നും സംരക്ഷിക്കുന്നതെന്നും വ്യക്തമാക്കാനാണ് ഈ പ്രൈവസി പോളിസി തയാറാക്കിയിരിക്കുന്നത്.<br><br>1. ഞങ്ങൾ ശേഖരിക്കുന്ന വിവരങ്ങൾ<br>നിങ്ങൾ സ്വമേധയാ നൽകുന്ന വിവരങ്ങൾ മാത്രമാണ് ഞങ്ങൾ ശേഖരിക്കുന്നത്:<br><br>പുതിയ പാട്ടുകളെയും പ്രോജക്റ്റുകളെയും കുറിച്ചുള്ള അപ്‌ഡേറ്റുകൾ ലഭിക്കുന്നതിനായി നിങ്ങൾ ഇമെയിൽ സബ്‌സ്‌ക്രൈബ് ചെയ്യുമ്പോൾ.<br><br>ബിസിനസ്സ് ആവശ്യങ്ങൾക്കോ സഹകരണത്തിനോ (Collaborations) വേണ്ടി ഇമെയിൽ വഴിയോ സോഷ്യൽ മീഡിയ വഴിയോ ഞങ്ങളെ ബന്ധപ്പെടുമ്പോൾ.<br><br>ശേഖരിക്കുന്ന വിവരങ്ങൾ: പേര്, ഇമെയിൽ വിലാസം (Email Address), കൂടാതെ വെബ്‌സൈറ്റ് കൂടുതൽ മെച്ചപ്പെടുത്തുന്നതിനായി കുക്കീസ് (Cookies) വഴി ലഭിക്കുന്ന അടിസ്ഥാന വിവരങ്ങൾ (IP വിലാസം, ബ്രൗസർ തരം എന്നിവ).<br><br>2. വിവരങ്ങൾ എങ്ങനെ ഉപയോഗിക്കുന്നു<br>ശേഖരിക്കുന്ന വിവരങ്ങൾ താഴെ പറയുന്ന ആവശ്യങ്ങൾക്ക് വേണ്ടി മാത്രമാണ് ഉപയോഗിക്കുന്നത്:<br><br>പുതിയ സംഗീത ആൽബങ്ങൾ, കവിതകൾ, മറ്റ് കലാസൃഷ്ടികൾ എന്നിവയെക്കുറിച്ചുള്ള വിവരങ്ങൾ നിങ്ങളെ അറിയിക്കാൻ.<br><br>നിങ്ങളുടെ സംശയങ്ങൾക്കും സന്ദേശങ്ങൾക്കും കൃത്യമായ മറുപടി നൽകാൻ.<br><br>ഞങ്ങളുടെ പ്ലാറ്റ്‌ഫോമിലെ സന്ദർശകരുടെ അനുഭവം കൂടുതൽ മികച്ചതാക്കാൻ.<br><br>ശ്രദ്ധിക്കുക: നിങ്ങളുടെ വ്യക്തിഗത വിവരങ്ങൾ ഞങ്ങൾ യാതൊരു കാരണവശാലും മറ്റ് മൂന്നാം കക്ഷികൾക്കോ (Third parties) പരസ്യ കമ്പനികൾക്കോ വിൽക്കുകയോ കൈമാറുകയോ ഇല്ല.<br><br>3. തേർഡ് പാർട്ടി ലിങ്കുകൾ (Third-Party Links)<br>ഞങ്ങളുടെ പ്ലാറ്റ്‌ഫോമുകളിൽ മറ്റ് മ്യൂസിക് സ്ട്രീമിംഗ് സർവീസുകളുടെയും ഡിസ്ട്രിബ്യൂഷൻ ടൂളുകളുടെയും ലിങ്കുകൾ (ഉദാഹരണത്തിന്: Spotify, SoundCloud, YouTube, Push.fm, RouteNote മുതലായവ) അടങ്ങിയിട്ടുണ്ടാകാം. ഈ ബാഹ്യ വെബ്‌സൈറ്റുകൾക്ക് അവരുടേതായ പ്രൈവസി പോളിസികൾ ഉണ്ട്. അതിനാൽ, ആ സൈറ്റുകളിലെ ഉള്ളടക്കങ്ങൾക്കോ പ്രവർത്തനങ്ങൾക്കോ ഞങ്ങൾക്ക് യാതൊരുവിധ ഉത്തരവാദിത്തവും ഉണ്ടായിരിക്കുന്നതല്ല.<br><br>4. വിവരങ്ങളുടെ സുരക്ഷ<br>നിങ്ങൾ ഞങ്ങളുമായി പങ്കുവെക്കുന്ന ഇമെയിൽ ഉൾപ്പെടെയുള്ള വിവരങ്ങൾ സുരക്ഷിതമായി സൂക്ഷിക്കാൻ ഞങ്ങൾ ബാധ്യസ്ഥരാണ്. അനധികൃതമായ ഇടപെടലുകളിൽ നിന്നും ചോർച്ചകളിൽ നിന്നും ഈ ഡാറ്റയെ സംരക്ഷിക്കാൻ ആവശ്യമായ മുൻകരുതലുകൾ ഞങ്ങൾ സ്വീകരിച്ചിട്ടുണ്ട്.<br><br>5. നിങ്ങളുടെ അവകാശങ്ങൾ<br>ഞങ്ങളുടെ ലിസ്റ്റിൽ നിന്ന് നിങ്ങളുടെ ഇമെയിൽ വിലാസം എപ്പോൾ വേണമെങ്കിലും മാറ്റാനുള്ള പൂർണ്ണ അവകാശം നിങ്ങൾക്കുണ്ട്. അപ്‌ഡേറ്റുകൾ ഇനി ലഭിക്കേണ്ടതില്ലെങ്കിൽ ഇമെയിലിനൊപ്പമുള്ള 'Unsubscribe' ലിങ്കിൽ ക്ലിക്ക് ചെയ്ത് നിങ്ങൾക്ക് ഒഴിവാക്കാവുന്നതാണ്.<br><br>6. ഞങ്ങളെ ബന്ധപ്പെടാൻ<br>ഈ പ്രൈവസി പോളിസിയെക്കുറിച്ച് എന്തെങ്കിലും സംശയങ്ങളോ ചോദ്യങ്ങളോ ഉണ്ടെങ്കിൽ താഴെ കാണുന്ന വിലാസത്തിൽ ബന്ധപ്പെടാം:<br><br>പ്രോജക്റ്റിന്റെ പേര്: Gj Creations<br><br>ഇമെയിൽ വിലാസം: [ iwiznet@gmail.com ]<br><br>വെബ്‌സൈറ്റ്/പ്ലാറ്റ്‌ഫോം ലിങ്ക്: [ https://www.iwiznet.in ]<br><br><b><i>प्राइवेसी पॉलिसी (Privacy Policy)</i></b><br><b><i><br></i></b><br>अंतिम अपडेट: [तारीख दर्ज करें, जैसे: June 2026]<br><br>Gj Creations में आपका स्वागत है। हम अपने श्रोताओं और विजिटर्स की गोपनीयता (Privacy) का पूरा सम्मान करते हैं और उसे सुरक्षित रखने के लिए प्रतिबद्ध हैं। यह प्राइवेसी पॉलिसी यह स्पष्ट करती है कि जब आप हमारी वेबसाइट पर आते हैं, हमारे स्मार्ट लिंक्स (जैसे Push.fm) का उपयोग करते हैं, या हमारे संगीत और कविता प्रोजेक्ट्स से जुड़ते हैं, तो हम आपकी जानकारी को कैसे एकत्र, उपयोग और सुरक्षित रखते हैं।<br><br>1. एकत्र की जाने वाली जानकारी<br>हम केवल वही व्यक्तिगत जानकारी एकत्र करते हैं जो आप स्वेच्छा से हमें प्रदान करते हैं, जैसे:<br><br>जब आप हमारे नए गीतों, एल्बम और कविताओं के अपडेट पाने के लिए ईमेल सब्सक्राइब करते हैं।<br><br>जब आप व्यावसायिक पूछताछ (Business Inquiries) या सहयोग (Collaborations) के लिए ईमेल या सोशल मीडिया के माध्यम से हमसे संपर्क करते हैं।<br><br>जानकारी के प्रकार: नाम, ईमेल पता (Email Address), और वेबसाइट के अनुभव को बेहतर बनाने के लिए कुकीज़ (Cookies) के माध्यम से मिलने वाली बुनियादी जानकारी (जैसे IP एड्रेस और ब्राउज़र का प्रकार)।<br><br>2. हम आपकी जानकारी का उपयोग कैसे करते हैं<br>एकत्र की गई जानकारी का उपयोग केवल निम्नलिखित उद्देश्यों के लिए किया जाता है:<br><br>आपको हमारे नए म्यूजिक ट्रैक्स, कविता संग्रह और ऑडियो प्रोजेक्ट्स के बारे में अपडेट भेजने के लिए।<br><br>आपके संदेशों, सुझावों या सवालों के सही जवाब देने के लिए।<br><br>वेबसाइट ट्रैफ़िक का विश्लेषण करके विजिटर्स के अनुभव को और बेहतर बनाने के लिए।<br><br>ध्यान दें: हम आपकी किसी भी व्यक्तिगत जानकारी को मार्केटिंग उद्देश्यों के लिए किसी भी तीसरे पक्ष (Third Party) या विज्ञापन कंपनियों को कभी नहीं बेचते, किराए पर नहीं देते और न ही उनके साथ साझा करते हैं।<br><br>3. थर्ड-पार्टी लिंक्स (Third-Party Links)<br>हमारे प्लेटफॉर्म पर अन्य म्यूजिक स्ट्रीमिंग प्लेटफॉर्म्स और डिस्ट्रीब्यूशन टूल्स (जैसे: Spotify, SoundCloud, YouTube, Push.fm, RouteNote आदि) के लिंक्स शामिल हो सकते हैं। इन बाहरी वेबसाइटों की अपनी स्वतंत्र प्राइवेसी पॉलिसी होती है। इसलिए, उन साइटों की सामग्री या गतिविधियों के लिए हमारी कोई ज़िम्मेदारी या दायित्व नहीं होगा।<br><br>4. डेटा की सुरक्षा<br>आप हमारे साथ जो भी जानकारी (जैसे ईमेल) साझा करते हैं, उसकी सुरक्षा करना हमारी ज़िम्मेदारी है। अनधिकृत पहुंच (Unauthorized access), बदलाव या डेटा लीक से आपकी जानकारी को बचाने के लिए हमने आवश्यक तकनीकी और संगठनात्मक सुरक्षा उपाय किए हैं।<br><br>5. आपके अधिकार<br>आपके पास यह अधिकार है कि आप जब चाहें हमारी ईमेल लिस्ट से अपना नाम और ईमेल हटा सकते हैं। यदि आप भविष्य में अपडेट प्राप्त नहीं करना चाहते हैं, तो ईमेल में दिए गए 'Unsubscribe' लिंक पर क्लिक करके किसी भी समय खुद को हटा सकते हैं।<br><br>6. हमसे संपर्क करें<br>यदि इस प्राइवेसी पॉलिसी के संबंध में आपका कोई सवाल या सुझाव है, तो आप नीचे दिए गए पते पर हमसे संपर्क कर सकते हैं:<br><br>प्रोजेक्ट का नाम: Gj Creations<br><br>ईमेल आईडी: [ iwiznet@gmail.com ]<br><br>वेबसाइट/प्लेटफ़ॉर्म लिंक:[ https://www.iwiznet.in ]<br><br><br></p>\n\t\t\t\t\t\t<div mbr-buttons mbr-theme-style=\"display-1\" class=\"mbr-section-btn mt-4\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-primary\" href=\"https://discord.gg/7agn9UxnZ\" data-app-placeholder=\"Type Text\">Start Now</a></div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>",
-          "_cid": "vmOmaHrAPJ",
-          "_anchor": "header15-7d",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
